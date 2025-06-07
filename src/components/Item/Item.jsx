@@ -1,7 +1,7 @@
 import './item.scss';
 
-function item(props){
-    const{price, title, text, img} = props;
+function item({price, title, text, img}){
+    
 
 
     return(
