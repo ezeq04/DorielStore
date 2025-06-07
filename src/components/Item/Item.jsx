@@ -1,4 +1,4 @@
-import './item.css';
+import './item.scss';
 
 function item(props){
     const{price, title, text, img} = props;
@@ -21,6 +21,6 @@ function item(props){
             </div>
         </div>
     );
-}
+};
 
 export default item;

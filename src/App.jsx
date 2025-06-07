@@ -1,7 +1,7 @@
 import LifeCycle from './components/Contador/Lifecycle';
 import itemListContainer from './components/ItemListContainer/itemListContainer';
 import NavBar from './components/navbar/NavBar';
-import './App.css'
+import "./app.css";
 
 function App() {
   return(
@@ -13,4 +13,4 @@ function App() {
   );
 };
 
-export default App
+export default App;
