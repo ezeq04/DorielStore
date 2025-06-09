@@ -29,12 +29,11 @@ const products = [
 ]
 
 function getProducts(){
-    return new Promise( (resolve, reject) => {
-        reject("No encontramos los productos")
-        setTimeout(()=>{
-            resolve(products)
-        }, 3000)
-    })
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(products);
+        }, 1000); 
+    });
 }
 
 export default getProducts;

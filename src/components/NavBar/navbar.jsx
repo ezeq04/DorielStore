@@ -5,7 +5,7 @@ import './navbar.css';
 function NavBar(){
 
     return(
-        <nav style={{display:"flex", justifyContent:"space-around", backgroundColor:"black" }}>
+        <nav style={{width:"100%",}}>
             <p>Logo</p>
                 <ul style={{display:"flex", gap:"1rem", listStyle:"none"}}>
                     <li>Inicio</li>

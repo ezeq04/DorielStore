@@ -1,35 +1,40 @@
-import './itemListContainer.css';
+import './ItemListContainer.css';
+import Item from '../Item/Item'
 import getProducts from '../../services/mockService';
-import item from '../Item/Item';
 import { useState, useEffect } from 'react';
 
 
-function itemListContainer({greetings}){
+function ItemListContainer({ greetings }) {
     let [products, setProducts] = useState([])
-    console.log("itemList Renderizado");
 
-    useEffect(() => {
-        const promise = getProducts();
+    console.log("ItemList renderizado")
 
-        promise.then( (result) => {
-            console.log("Productos recibidos de la API")
-            setProducts(result);
-        }).catch( (err) => { alert(err) })
-    },[] )
+    useEffect( () => {
+    // 1. then/catch   // 2. async/await
+    const promise = getProducts(); // retorna una nueva promesa
 
-    return(
+    promise.then( (result) => {
+        console.log("productos recibidos de la API")
+        setProducts(result);
+    }).catch( (err) => { alert(err) })
+
+    }, [])   
+   
+    return (
         <>
-        <h2>{greetings}</h2>
-        <hr/>
+        <h2>{greetings}</h2>       
+        <hr/>  
+        <div className="items-container">         
         {
-           products.map( elem => 
-                <item
+            products.map( elem => 
+            <Item 
                 key={elem.id}
-                { ...elem}
-                />)
+                { ...elem}/>)
         }
-        </>    
+        </div>
+        </>
     );
 };
 
-export default itemListContainer;
+
+export default ItemListContainer;

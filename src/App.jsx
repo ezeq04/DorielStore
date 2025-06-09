@@ -1,15 +1,20 @@
-import LifeCycle from './components/Contador/Lifecycle';
-import itemListContainer from './components/ItemListContainer/itemListContainer';
-import NavBar from './components/navbar/NavBar';
-import "./app.css";
+import './App.css';
+import Lifecycle from './components/Contador/Lifecycle';
+import ItemListContainer from './components/ItemListContainer/itemListContainer';
+
+import NavBar from './components/NavBar/navbar';
 
 function App() {
-  return(
-    <div className="container">
-      <NavBar />
-      <LifeCycle />
-      <itemListContainer greetings="Bienvenido a mi proyecto" />
-    </div>
+
+  return (
+ <>
+  <NavBar />   
+  <div className="container">
+    <Lifecycle />
+    <ItemListContainer greetings="Bienvenido a mi proyecto" />
+  </div>
+</>
+
   );
 };
 
