@@ -2,17 +2,20 @@ import './ItemListContainer.css';
 import Item from '../Item/Item'
 import getProducts from '../../services/mockService';
 import { useState, useEffect } from 'react';
+import Loader from '../Loader/Loader';
 
 
 function ItemListContainer({ greetings }) {
-    let [products, setProducts] = useState([])
+
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState([false]);
 
     useEffect( () => {
-    const promise = getProducts(); 
-    promise.then( (result) => {
-        setProducts(result);
-    }).catch( (err) => { alert(err) })
-
+        setLoading(true)
+        getProducts().then((result) =>{
+            setProducts(result)
+            setLoading(false);
+        }).catch((err)=>{alert(err)});
     }, [])   
    
     return (
@@ -21,10 +24,15 @@ function ItemListContainer({ greetings }) {
         <hr/>  
         <div className="items-container">         
         {
-            products.map( elem => 
-            <Item 
-                key={elem.id}
-                { ...elem}/>)
+            loading ? <Loader/>
+            :
+            products.length > 0?
+                products.map( elem => 
+                    <Item 
+                         key={elem.id}
+                        { ...elem}/>)
+            :
+            <p>No se encontraron productos</p>
         }
         </div>
         </>
