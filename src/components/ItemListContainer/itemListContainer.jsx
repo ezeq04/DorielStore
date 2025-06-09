@@ -7,14 +7,9 @@ import { useState, useEffect } from 'react';
 function ItemListContainer({ greetings }) {
     let [products, setProducts] = useState([])
 
-    console.log("ItemList renderizado")
-
     useEffect( () => {
-    // 1. then/catch   // 2. async/await
-    const promise = getProducts(); // retorna una nueva promesa
-
+    const promise = getProducts(); 
     promise.then( (result) => {
-        console.log("productos recibidos de la API")
         setProducts(result);
     }).catch( (err) => { alert(err) })
 

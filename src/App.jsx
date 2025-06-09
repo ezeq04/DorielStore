@@ -1,7 +1,6 @@
 import './App.css';
 import Lifecycle from './components/Contador/Lifecycle';
 import ItemListContainer from './components/ItemListContainer/itemListContainer';
-
 import NavBar from './components/NavBar/navbar';
 
 function App() {
@@ -10,8 +9,8 @@ function App() {
  <>
   <NavBar />   
   <div className="container">
-    <Lifecycle />
-    <ItemListContainer greetings="Bienvenido a mi proyecto" />
+    {/* <Lifecycle /> */}
+    <ItemListContainer greetings="Bienvenido a mi e-commerce" />
   </div>
 </>
 

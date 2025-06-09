@@ -1,7 +1,50 @@
-nav{
-      width: 100%;
-  display: flex;
-  background-color: bisque;
-  justify-content: space-between;
 
+nav {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; 
+  box-sizing: border-box;
+  
+}
+
+p img{ 
+    width: 150px;
+    height: auto;
+   
+}
+.carrito {
+  position: absolute;
+  right: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(255, 255, 255);
+  font-size: 1.1rem;
+  font-weight: 600;
+  
+}
+
+.lista{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    list-style: none;
+}
+.lista li{
+    width: auto;
+    border-radius: 15px;
+    border: 1px white solid;
+    background-color: white;
+    padding: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+.lista li:hover{
+  transform: translateY(-4px);
+  box-shadow: 4px 5px 30px rgba(88, 87, 87, 0.527);
 }
