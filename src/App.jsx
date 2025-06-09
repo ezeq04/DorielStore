@@ -1,19 +1,23 @@
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
 import './App.css';
-import Lifecycle from './components/Contador/Lifecycle';
-import ItemListContainer from './components/ItemListContainer/itemListContainer';
-import NavBar from './components/NavBar/navbar';
+import ItemDetail from './components/ItemDetail/ItemDetail';
+
 
 function App() {
 
   return (
- <>
-  <NavBar />   
-  <div className="container">
-    {/* <Lifecycle /> */}
-    <ItemListContainer greetings="Bienvenido a mi e-commerce" />
-  </div>
-</>
-
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route  path="/" element={<ItemListContainer />} />
+        <Route  path="/categoria/:categoria" element={<ItemListContainer />} />
+        <Route  path="/detalle/:id" element={<ItemDetail />} />
+        <Route  path="/contacto" element={<p>Esta es la sección de contacto</p>} />
+        <Route  path="*" element={<Link to="/"><button>Volvé al inicio</button></Link>} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

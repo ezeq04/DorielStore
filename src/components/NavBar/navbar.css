@@ -45,10 +45,16 @@ p img{
     padding: 10px;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
+   
 }
 .lista li:hover{
   transform: translateY(-4px);
   box-shadow: 4px 5px 30px rgba(88, 87, 87, 0.527);
+}
+
+.lista li a{
+  text-decoration: none;
+  color: black;
 }
 
 

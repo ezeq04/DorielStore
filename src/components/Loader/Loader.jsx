@@ -5,13 +5,13 @@ import './Loader.css';
 function Loader(){
 return(
   <div className="cargando">
-    <p ><TailChase
+    <TailChase
   size="40"
   speed="1.75"
   color="black" 
-/></p>
+/>
 </div>
 );
-}
+};
 
 export default Loader;
