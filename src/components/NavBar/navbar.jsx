@@ -9,8 +9,9 @@ function NavBar(){
         <nav>
             <p><img src="/assets/dorielicon.jpg" alt="Logo de la pagina" className="logo"/></p>
                     <ul className="lista">
-                         <li>
+                <li>
                     <Link to="/">
+                    
                         Productos
                     </Link>
                 </li>

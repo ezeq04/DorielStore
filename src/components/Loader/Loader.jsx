@@ -8,7 +8,7 @@ return(
     <TailChase
   size="40"
   speed="1.75"
-  color="black" 
+  color="white" 
 />
 </div>
 );

@@ -6,6 +6,7 @@ import Loader from '../Loader/Loader';
 import { useParams } from 'react-router-dom';
 
 
+
 function ItemListContainer({ greetings }) {
 
     const [allProducts, setAllProducts] = useState([]);
@@ -38,6 +39,8 @@ function ItemListContainer({ greetings }) {
     }, [categoria]);   
    
     return (
+
+        
         <>
         <h2>{greetings}</h2>       
         <hr/>  
