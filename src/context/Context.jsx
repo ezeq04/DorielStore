@@ -2,15 +2,15 @@ import { createContext, useContext, useState } from "react";
 
 const AppContext = createContext();
 
-export const useAppContext = () =>useContext(AppContext);
+export const useAppContext = () => useContext(AppContext);
 
-export const ContextProvider=(props)=>{
+export const ContextProvider = (props) => {
     const [carrito, setCarrito] = useState([]);
 
     const agregarAlCarrito = (producto) => {
         if (carrito.some(el => el.id === producto.id)) {
             const nuevoCarrito = carrito.map(element => {
-                if(element.id === producto.id){
+                if (element.id === producto.id) {
                     return {
                         ...element,
                         cantidad: element.cantidad + producto.cantidad,
@@ -20,15 +20,22 @@ export const ContextProvider=(props)=>{
                 };
             });
             setCarrito(nuevoCarrito);
-        }else{
+        } else {
             setCarrito([...carrito, producto])
         };
-        
-        
-    }
-    return(
 
-        <AppContext.Provider value={{ carrito, agregarAlCarrito }}>
+
+    }
+    const eliminarDelCarrito = (id) => {
+        setCarrito(carrito.filter(item => item.id !== id));
+    };
+
+    const vaciarCarrito = () => {
+        setCarrito([]);
+    };
+    return (
+
+        <AppContext.Provider value={{ carrito, agregarAlCarrito, vaciarCarrito, eliminarDelCarrito }}>
             {props.children}
         </AppContext.Provider>
     );

@@ -4,12 +4,12 @@ import './item.scss';
 
 
 
-function Item({ id, price, title, img }){
-  
-  const {agregarAlCarrito }= useAppContext();
+function Item({ id, price, title, img }) {
 
-  return (
-    <div className="card">
+    const { agregarAlCarrito } = useAppContext();
+
+    return (
+        <div className="card">
             <div className="card-image-container">
                 <img src={img} className="card-image" alt={title} />
             </div>
@@ -21,9 +21,9 @@ function Item({ id, price, title, img }){
                 <Link to={`/detalle/${id}`}>
                     <button className="card-button">Ver detalle</button>
                 </Link>
-                <button className="card-button" onClick={() => agregarAlCarrito({id,price,title, cantidad:1 })}>Agregar al carrito</button>
+                <button className="card-button" onClick={() => agregarAlCarrito({ id, price, title, cantidad: 1 })}>Agregar al carrito</button>
             </div>
         </div>
-  );
+    );
 }
 export default Item;

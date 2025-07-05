@@ -3,15 +3,15 @@ import CartWidget from '../CartWidget/cartWidget';
 import './navbar.css';
 
 
-function NavBar(){
+function NavBar() {
 
-    return(
+    return (
         <nav>
-            <p><img src="/assets/dorielicon.jpg" alt="Logo de la pagina" className="logo"/></p>
-                    <ul className="lista">
+            <p><img src="/assets/dorielicon.jpg" alt="Logo de la pagina" className="logo" /></p>
+            <ul className="lista">
                 <li>
                     <Link to="/">
-                    
+
                         Productos
                     </Link>
                 </li>
@@ -22,7 +22,7 @@ function NavBar(){
                 </li>
                 <li>
                     <Link to="/categoria/relojes">
-                       Relojes
+                        Relojes
                     </Link>
                 </li>
                 <li>
@@ -30,8 +30,8 @@ function NavBar(){
                         Contacto
                     </Link>
                 </li>
-                    </ul>
-            <CartWidget cantidad={2} className="carrito"/>
+            </ul>
+            <CartWidget cantidad={2} className="carrito" />
 
         </nav>
     );

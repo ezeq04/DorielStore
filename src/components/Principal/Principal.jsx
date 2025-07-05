@@ -1,19 +1,19 @@
 import './Principal.css';
 import Background from '../Background/Background';
-import ItemListContainer from '../ItemListContainer/ItemListContainer';
+import ItemListContainer from '../ItemListContainer/itemListContainer';
 import 'bootstrap';
 
 
-function Principal(){
+function Principal() {
 
 
 
-    return(
+    return (
         <div className="principal">
-        <Background/>
-        <div className="content ">
-            <ItemListContainer/>
-         </div>
+            <Background />
+            <div className="content ">
+                <ItemListContainer />
+            </div>
         </div>
     );
 };
