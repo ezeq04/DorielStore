@@ -25,11 +25,7 @@ function NavBar() {
                         Relojes
                     </Link>
                 </li>
-                <li>
-                    <Link to="/contacto">
-                        Contacto
-                    </Link>
-                </li>
+               
             </ul>
             <CartWidget cantidad={2} className="carrito" />
 

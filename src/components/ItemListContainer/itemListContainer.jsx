@@ -1,72 +1,58 @@
 import './ItemListContainer.css';
-import Item from '../Item/Item'
-import getProducts from '../../services/mockService';
+import Item from '../Item/Item';
 import { useState, useEffect } from 'react';
 import Loader from '../Loader/Loader';
 import { useParams } from 'react-router-dom';
-import { db } from '../../firebaseConfig.js';
-import { collection, getDocs } from 'firebase/firestore';
-
-
+import { getProducts } from '../../services/firebaseService';
 
 function ItemListContainer({ greetings }) {
+  const [allProducts, setAllProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { categoria } = useParams();
 
-    const [allProducts, setAllProducts] = useState([]);
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState([false]);
+  const filterProducts = (arrayProducts, category) => {
+    if (category) {
+      setProducts(arrayProducts.filter(el => el.category === category));
+    } else {
+      setProducts(arrayProducts);
+    }
+  };
 
-    const productosCollection = collection(db, 'productos');
-
-    const { categoria } = useParams();
-
-    const filterProducts = (arrayProducts, category) => {
-        if (category) {
-            setProducts(arrayProducts.filter(el => el.category === categoria));
-        } else {
-            setProducts(arrayProducts);
-        };
+  useEffect(() => {
+    console.log(import.meta.env);
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const data = await getProducts();
+        setAllProducts(data);
+        filterProducts(data, categoria);
+      } catch (error) {
+        console.error('Error al obtener productos:', error);
+      } finally {
+        setLoading(false);
+      }
     };
 
-    useEffect(() => {
-        if (allProducts.length === 0) {
+    fetchData();
+  }, [categoria]);
 
-            getDocs(productosCollection)
-                .then(snapshot => {
-                    const arrayDeProductos = snapshot.docs.map(el => el.data());
-                    setAllProducts(arrayDeProductos);
-                    filterProducts(arrayDeProductos, categoria);
-                    setLoading(false);
-                }).catch(err => console.error(err));
-
-            setLoading(true);
-
-        } else {
-            filterProducts(allProducts, categoria);
+  return (
+    <>
+      <h2>{greetings}</h2>
+      <hr />
+      <div className="items-container">
+        {
+          loading ? <Loader />
+            : products.length > 0
+              ? products.map(elem => (
+                <Item key={elem.id} {...elem} />
+              ))
+              : <p>No se encontraron productos</p>
         }
-    }, [categoria]);
-
-    return (
-
-
-        <>
-            <h2>{greetings}</h2>
-            <hr />
-            <div className="items-container">
-                {
-                    loading ? <Loader />
-                        :
-                        products.length > 0 ?
-                            products.map(elem =>
-                                <Item
-                                    key={elem.id}
-                                    {...elem} />)
-                            :
-                            <p>No se encontraron productos</p>
-                }
-            </div>
-        </>
-    );
-};
-
+      </div>
+    </>
+  );
+}
 
 export default ItemListContainer;

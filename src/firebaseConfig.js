@@ -2,14 +2,18 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
+const { VITE_FIREBASE_API_KEY, VITE_FIREBASE_APP_ID, VITE_FIREBASE_AUTH_DOMAIN, VITE_FIREBASE_MESSAGING_SENDER_ID, VITE_FIREBASE_PROJECT_ID, VITE_FIREBASE_STORAJE_BUCKET } = import.meta.env;
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB-hXQ1tNe6gXIGenSF5_jA_XyIvthmcnQ",
-  authDomain: "doriel-store.firebaseapp.com",
-  projectId: "doriel-store",
-  storageBucket: "doriel-store.firebasestorage.app",
-  messagingSenderId: "211915309643",
-  appId: "1:211915309643:web:dc630f51782c9c81c783ce"
+  apiKey: VITE_FIREBASE_API_KEY,
+  authDomain: VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: VITE_FIREBASE_PROJECT_ID,
+  storageBucket: VITE_FIREBASE_STORAJE_BUCKET,
+  messagingSenderId: VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: VITE_FIREBASE_APP_ID
 };
+
 
 
 const app = initializeApp(firebaseConfig);

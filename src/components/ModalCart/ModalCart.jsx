@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import getProducts from '../../services/mockService';
 
+
+
 function ModalCart() {
   const { carrito, agregarAlCarrito, eliminarDelCarrito } = useAppContext();
   const navigate = useNavigate();
@@ -36,8 +38,8 @@ function ModalCart() {
             {carrito.length === 0 ? (
               <p>No hay productos en el carrito.</p>
             ) : (
-              carrito.map((prod, index) => (
-                <div key={index} className="mb-3 border-bottom pb-2">
+              carrito.map((prod) => (
+                <div key={prod.id} className="mb-3 border-bottom pb-2">
                   <h6>{prod.title}</h6>
                   <p>Cantidad: {prod.cantidad}</p>
                   <p>Precio unitario: ${prod.price}</p>
