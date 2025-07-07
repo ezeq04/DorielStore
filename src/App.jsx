@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer/itemListContainer';
-import Navbar from './components/NavBar/NavBar'
+import Navbar from './components/NavBar/NavBar.jsx'
 import './App.css';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import { ContextProvider } from './context/Context';

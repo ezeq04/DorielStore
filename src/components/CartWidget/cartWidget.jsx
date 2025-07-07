@@ -1,5 +1,5 @@
 import { useAppContext } from '../../context/Context';
-import './cartWidget.css';
+import './CartWidget.css';
 
 function CartWidget() {
   const { carrito } = useAppContext();
