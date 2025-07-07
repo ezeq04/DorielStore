@@ -20,7 +20,7 @@ function ItemListContainer({ greetings }) {
   };
 
   useEffect(() => {
-    console.log(import.meta.env);
+    
     const fetchData = async () => {
       setLoading(true);
       try {
