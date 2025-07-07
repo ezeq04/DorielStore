@@ -1,6 +1,6 @@
 import './Principal.css';
 import Background from '../Background/Background';
-import ItemListContainer from '../ItemListContainer/itemListContainer';
+import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import 'bootstrap';
 
 
